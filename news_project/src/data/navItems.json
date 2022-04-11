@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Ask",
+    "value": "askstories"
+  },
+  {
+    "label": "Show",
+    "value": "showstories"
+  },
+  {
+    "label": "Jobs",
+    "value": "jobstories"
+  },
+  {
+    "label": "Sign Up",
+    "value": "signup"
+  },
+  {
+    "label": "Log In",
+    "value": "login"
+  }
+]
