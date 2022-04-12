@@ -1,6 +1,8 @@
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from rest_framework.decorators import api_view
+from django.views.decorators.csrf import csrf_exempt
+
 
 from django.contrib.auth import authenticate, login, logout
 from .models import AppUser as User
@@ -52,6 +54,7 @@ def log_in(request):
 
 
 @api_view(['POST'])
+@csrf_exempt
 def log_out(request):
     logout(request)
     return HttpResponse('Logged you out!')

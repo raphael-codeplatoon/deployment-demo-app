@@ -12,7 +12,7 @@ function AppNav(props) {
                     <Nav.Link  href="#/sections/jobstories">Jobs</Nav.Link>
                     <Nav.Link  href="#/signup">Sign Up</Nav.Link>
                     <Nav.Link  href="#/login">Log in</Nav.Link>
-                    {/* { props.appState.user && <Nav.Link  href="#/preferences">Preferences</Nav.Link> } */}
+                    { props.appState.user && <Nav.Link  href="#/preferences">Preferences</Nav.Link> }
                     { props.appState.user && <button onClick={()=>{logOut(props.setAppState)}}>Log Out</button> }
                 </Nav>
             </Container>
