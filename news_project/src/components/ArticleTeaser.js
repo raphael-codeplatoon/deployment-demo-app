@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import { whoAmI, getPreferences, PreferencesContext } from '../utils/utils.js';
-import {useContext} from 'react';
 
 
 
 function ArticleTeaser(props) {
     const time = new Date(props.time * 1000)
-    const colorTheme = useContext(PreferencesContext);  
     return (
-      <div className={colorTheme}>
+      <div >
         <Link to={props.pageUrl} >{ props.title }</Link>
         <p>{ time.toLocaleDateString() }</p>
       </div>

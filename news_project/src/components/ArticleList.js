@@ -1,15 +1,18 @@
 // import "./articleList.css"
 import { ListGroup } from 'react-bootstrap';
 import ArticleTeaser from './ArticleTeaser.js';
+import {useContext} from 'react';
 
 
 function ArticleList(props) {
+  const colorTheme = useContext(PreferencesContext);  
+
   return (
     <ListGroup>
 
       { 
         props.articles.map((article, index) => (
-          <ListGroup.Item key={index} className={index % 2 ? "odd-item" : "even-item"}>
+          <ListGroup.Item key={index} className={colorTheme}>
             <ArticleTeaser pageUrl={`/articles/${article.id}`}  { ...article } id={ article.id } />
           </ListGroup.Item>
         ))
