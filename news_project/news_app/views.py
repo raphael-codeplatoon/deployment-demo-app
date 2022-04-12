@@ -2,6 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from rest_framework.decorators import api_view
 from django.views.decorators.csrf import csrf_exempt
+from .models import Preference
 
 
 from django.contrib.auth import authenticate, login, logout
@@ -68,3 +69,23 @@ def who_am_i(request):
         return HttpResponse(data)
     else:
         return JsonResponse({'user':None})
+
+@api_view(['GET', 'PUT'])
+def preferences(request):
+    if request.method == 'PUT':
+        print('hi')
+        print(request.data['color-theme'])
+        print(request.user.id)
+        obj, created = Preference.objects.update_or_create(
+            user=request.user, name='colortheme', label="Color Theme",
+            defaults={'value': request.data['color-theme']},
+        )
+        return HttpResponse('ok')
+    elif request.method == 'GET':
+        if request.user.is_authenticated:
+            preferences = request.user.user_preference.all()
+        
+            preferences = serializers.serialize("json", preferences )
+            return HttpResponse(preferences)
+        else:
+            return JsonResponse({'preferences':None})
