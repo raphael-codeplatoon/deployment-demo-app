@@ -93,6 +93,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+CSRF_TRUSTED_ORIGINS = ['https://regularsizewebsite.com']
 
 
 # Password validation
